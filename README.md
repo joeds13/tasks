@@ -14,7 +14,7 @@ A symlink also needs to exist to map `mise` to these files, so `ln -s <repo loca
 
 Follow the [mise uv cookbook](https://mise.jdx.dev/mise-cookbook/python.html#mise-uv) to ensure `mise` and `uv` are integrated
 
-Python is pretty good for wirting these tasks, so using `uv` gives a very portable experience
+Python is pretty good for writing these tasks, so using `uv` gives a very portable experience
 
 A simple python script that has imports and a version requirement
 
@@ -42,6 +42,17 @@ data = resp.json()
 print(f"Python version: {sys.version}")
 pprint([(k, v["title"]) for k, v in data.items()][:10])
 ```
+
+We can create the above comment using:
+
+```shell
+uv init --script <script_name.py>
+uv add <packages> --script <script_name.py>
+```
+
+## Run
+
+The `run` command of `mise` will then provide and autocompleting list of taks to run:
 
 ```shell
 ❯ mise run python:print_peps
